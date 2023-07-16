@@ -26,13 +26,21 @@ function App() {
     setTasks([...tasks, newTask]);
   }
 
+  // Función que se pasará como propiedad al componente "ListaTareas"
+  const eliminarTarea = (taskId) => {
+    // console.log(taskId);
+    setTasks(tasks.filter((item) => item.id !== taskId));
+  };
+
   return (
     <>
-      {/* Envía función "crearTarea" como propiedad "crearTarea" al componente "TaskForm" */}
+      {/* Envía función "crearTarea" como propiedad "createTask" al componente "TaskForm" */}
       <TaskForm createTask={crearTarea} />
 
-      {/* Envía el valor de la variable/estado "tasks" importado del arreglo nombrado como "data" con el parámetro "tasks" */}
-      <ListaTareas tasks={tasks} />
+      {/* Envía variable/estado "tasks" importado del arreglo nombrado como "data" con el parámetro "tasks"
+      al componente "TaskForm" */}
+      {/* Envía función "eliminarTarea" como propiedad "deleteTask" al componente "ListaTareas" */}
+      <ListaTareas tasks={tasks} deleteTask={eliminarTarea} />
     </>
   );
 }
