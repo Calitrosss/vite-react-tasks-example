@@ -1,15 +1,7 @@
-import { useState, useEffect } from "react";
-import { tareas as data } from "./tareas";
+/* eslint-disable react/prop-types */
 
-console.log(data);
-
-function ListaTareas() {
-  const [tasks, setTasks] = useState([]);
-
-  useEffect(() => {
-    setTasks(data);
-  }, []);
-
+// Recibe el valor/estado desde el componente "App"
+function ListaTareas({ tasks }) {
   if (tasks.length === 0) {
     return <h1>No hay tareas aún</h1>;
   }
