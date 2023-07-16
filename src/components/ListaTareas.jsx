@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
 
+import TaskCard from "./TaskCard";
+
 // Recibe el valor/estado desde el componente "App"
 function ListaTareas({ tasks }) {
   if (tasks.length === 0) {
@@ -9,10 +11,8 @@ function ListaTareas({ tasks }) {
   return (
     <div>
       {tasks.map((task) => (
-        <div key={task.id}>
-          <h1>{task.title}</h1>
-          <p>{task.description}</p>
-        </div>
+        // Se envía la tarea el valor de "task" como propiedad "tarea" al componente "taskCard"
+        <TaskCard key={task.id} tarea={task} />
       ))}
     </div>
   );

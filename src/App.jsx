@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import ListaTareas from "./ListaTareas";
-import TaskForm from "./TaskForm";
-import { tareas as data } from "./tareas";
+import ListaTareas from "./components/ListaTareas";
+import TaskForm from "./components/TaskForm";
+import { tareas as data } from "./data/tareas";
 
 function App() {
   // Variable/estado que se pasará como propiedad al componente "ListaTareas"
@@ -13,11 +13,11 @@ function App() {
   }, []);
 
   // Función que se pasará como propiedad al componente "TaskForm"
-  function crearTarea(tareaTitulo) {
+  function crearTarea(task) {
     const newTask = {
-      title: tareaTitulo,
       id: tasks.length,
-      description: "Nueva tarea " + (tasks.length + 1),
+      title: task.title,
+      description: task.description,
     };
 
     // console.log(newTask);
