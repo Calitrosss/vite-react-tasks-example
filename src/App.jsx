@@ -1,8 +1,10 @@
+import ListaTareas from "./ListaTareas";
+
 function App() {
   return (
-    <>
-      <h1>Hola Mundo</h1>
-    </>
+    <div>
+      <ListaTareas />
+    </div>
   );
 }
 
