@@ -1,13 +1,20 @@
 /* eslint-disable react/prop-types */
 
-import { useState } from "react";
+import { useState, useContext } from "react";
+//Se importa el contexto a usar con el nombre del contexto del generador de contexto
+import { TaskContext } from "../context/TareaContext";
 
 // Recibe la función "createTask" desde el componente "App" para asignarle el valor
-function TaskForm({ createTask }) {
+function TaskForm() {
   const [title, setTitle] = useState("");
   const [description, setdescription] = useState("");
 
+  // Recibe la función "createTask" desde el el contexto importado
+  // Se invoca del objeto del contexto el valor/estado o función necesaria a usar
+  const { createTask } = useContext(TaskContext);
+
   const handleSubmit = (e) => {
+    //Previene la ejecución predeterminado del submit del form
     e.preventDefault();
 
     // Le asigna el valor a ser usado por la función "createTask" del componente "App"

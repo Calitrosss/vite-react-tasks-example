@@ -1,20 +1,24 @@
 /* eslint-disable react/prop-types */
 
 import TaskCard from "./TaskCard";
+import { useContext } from "react";
+//Se importa el contexto a usar con el nombre del contexto del generador de contexto
+import { TaskContext } from "../context/TareaContext";
 
-// Recibe el valor/estado "tasks" desde el componente "App"
-// Recibe la función "deleteTask" desde el componente "App" para asignarle el valor
-function ListaTareas({ tasks, deleteTask }) {
-  if (tasks.length === 0) {
+function ListaTareas() {
+  // Recibe el valor/estado "taskList" desde el el contexto importado
+  // Se invoca del objeto del contexto el valor/estado o función necesaria a usar
+  const { taskList } = useContext(TaskContext);
+
+  if (taskList.length === 0) {
     return <h1>No hay tareas aún</h1>;
   }
 
   return (
     <div>
-      {tasks.map((task) => (
+      {taskList.map((task) => (
         // Se envía la tarea el valor de "task" como propiedad "tarea" al componente "taskCard"
-        // Se envía la función "deleteTask" como propiedad "deleteItem" al componente "taskCard"
-        <TaskCard key={task.id} tarea={task} deleteItem={deleteTask} />
+        <TaskCard key={task.id} tarea={task} />
       ))}
     </div>
   );
