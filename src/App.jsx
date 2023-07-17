@@ -20,8 +20,6 @@ function App() {
       description: task.description,
     };
 
-    // console.log(newTask);
-
     // [...tasks, newTask] nuevo array con contenido completo de variable/estado "tasks" y agrega elemento "newTask"
     setTasks([...tasks, newTask]);
   }
