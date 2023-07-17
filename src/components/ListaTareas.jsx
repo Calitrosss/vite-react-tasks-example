@@ -11,11 +11,11 @@ function ListaTareas() {
   const { taskList } = useContext(TaskContext);
 
   if (taskList.length === 0) {
-    return <h1>No hay tareas aún</h1>;
+    return <h1 className="text-white text-4xl font-bold text-center">No hay tareas aún</h1>;
   }
 
   return (
-    <div>
+    <div className="grid grid-cols-4 gap-2">
       {taskList.map((task) => (
         // Se envía la tarea el valor de "task" como propiedad "tarea" al componente "taskCard"
         <TaskCard key={task.id} tarea={task} />
